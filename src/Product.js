@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import './Product.css';
+import { NavLink } from 'react-router-dom';
 function Product(props) {
     const  [like,setLike]=useState(props.like);
 const clickHandler = () => {
@@ -24,7 +25,11 @@ const clickHandler = () => {
 
       <Card.Img  variant="top"  src={require('./assets/images/'+props.img)} width="286" height="180" />
       <Card.Body>
-      <Card.Title>{props.title}</Card.Title>
+      <NavLink to={`${props.Title}`}>
+            
+            
+      <Card.Title>{props.Title}</Card.Title>
+      </NavLink>
             <Card.Text>
             Price : {props.price} DT
             </Card.Text>
