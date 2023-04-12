@@ -1,13 +1,27 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
+import './Product.css';
 function Product(props) {
     const  [like,setLike]=useState(props.like);
 const clickHandler = () => {
     setLike(like + 1);
   };
+
+  const cardStyle = {
+    backgroundColor: like > 5 ? '#DB7090' : 'none',
+    animation: like > 5 ? 'clignote 2s linear infinite' : 'none',
+  };
+
+  const keyframes = `
+    @keyframes clignote {
+      50% { opacity: 0.5; }
+    }
+  `;
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card  className='card' style={cardStyle}>
+        <style>{keyframes}</style>
+
       <Card.Img  variant="top"  src={require('./assets/images/'+props.img)} width="286" height="180" />
       <Card.Body>
       <Card.Title>{props.title}</Card.Title>

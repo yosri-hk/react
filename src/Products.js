@@ -21,7 +21,7 @@ function Products(){
       setShowMsg(true);
       setTimeout(() => {
         setShowMsg(false);
-      }, 3000);
+      }, 7);
     }, []);  
     
     return(
